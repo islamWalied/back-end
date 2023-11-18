@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('media');
             $table->foreignId('user_id')->nullable()->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('children_id')->nullable()->constrained()->cascadeOnUpdate()->cascadeOnDelete();
-            $table->timestamps('publication_date');
+            $table->date('publication_date');
             $table->timestamps();
         });
     }
