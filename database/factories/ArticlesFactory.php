@@ -17,7 +17,11 @@ class ArticlesFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title' => $this->faker->text(),
+            'description' => $this->faker->sentence,
+            'image' => $this->faker->imageUrl,
+            'publication_date' => $this->faker->date,
+
         ];
     }
 }
