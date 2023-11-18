@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -20,8 +22,6 @@ class AuthController extends Controller
             'password' => bcrypt($fields['password'])
         ]);
 
-        // Send verification email
-        $user->notify(new VerifyEmailNotification());
 
         $token = $user->createToken('myapptoken')->plainTextToken;
 
@@ -71,5 +71,13 @@ class AuthController extends Controller
                 'content-type' => 'application/json',
                 "ngrok-skip-browser-warning" => "69420",
             ]);
+    }
+    public function logout()
+    {
+        auth()->user()->tokens()->delete();
+
+        return [
+            'message' => 'Logged out'
+        ];
     }
 }
