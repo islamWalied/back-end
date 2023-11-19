@@ -17,8 +17,8 @@ class ArticlesFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->text(),
-            'description' => $this->faker->sentence,
+            'title' => $this->faker->sentence(3),
+            'description' => $this->faker->text,
             'image' => $this->faker->imageUrl,
             'publication_date' => $this->faker->date,
 

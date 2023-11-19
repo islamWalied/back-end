@@ -28,3 +28,11 @@ Route::middleware('auth:sanctum')
 
 //articles
 Route::get('/articles', [\App\Http\Controllers\ArticlesController::class,'index']);
+
+
+//PRODUCTS
+Route::get('/products', [\App\Http\Controllers\ProductController::class,'index']);
+
+//therapists
+Route::post('/therapists-register', [\App\Http\Controllers\TherapistController::class,'register']);
+Route::post('/therapists-login', [\App\Http\Controllers\TherapistController::class,'login']);
